@@ -1,5 +1,12 @@
 import React from 'react'
 
+const scrollToTop = () => {
+    window.scrollTo({
+      top: 300,
+      behavior: "smooth"
+    });
+  }
+
 const Paciente = ({paciente, setPaciente, pacientes, setPacientes}) => {
     const { mascota, propietario, email, alta, sintomas} = paciente;
 
@@ -28,7 +35,8 @@ const Paciente = ({paciente, setPaciente, pacientes, setPacientes}) => {
             <div className='flex justify-between mt-8'>
                 <button
                     type="button"
-                    onClick={() => setPaciente(paciente)}
+                    onClick={() => {setPaciente(paciente);
+                                   scrollToTop(); }}
                     className="px-8 bg-indigo-600 hover:bg-indigo-800 text-white text-md font-bold uppercase rounded-lg"
                 >
                     editar

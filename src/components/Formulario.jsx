@@ -31,6 +31,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     
     const handleInput = (e) => {
         setDatosPaciente({...datosPaciente, [e.target.id] : e.target.value })
+       
     }
     const handleSubmit = (e) => {
         e.preventDefault()

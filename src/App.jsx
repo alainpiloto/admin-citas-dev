@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader'
 import { useState, useEffect } from 'react'
 import './App.css'
 import './index.css'
@@ -16,18 +17,17 @@ function App() {
   const [paciente, setPaciente] = useState({})
 
   useEffect(() => {
-    const getLocalStorage = () =>  {
+    
       const pacientesLS = JSON.parse( localStorage.getItem('pacientes') ) ?? [] ; // (??) nullish operator ()
       setPacientes(pacientesLS)
-    }
+    
 
-    getLocalStorage();
+    // getLocalStorage();
 
       }, [])
 
   useEffect(() => {
     
-      console.log('Desde use effect')
       localStorage.setItem('pacientes', JSON.stringify( pacientes ))
     
   }, [pacientes])
@@ -42,7 +42,9 @@ function App() {
           paciente={paciente}
           setPaciente={setPaciente}
         />
+        
         <ListadoPacientes 
+        
           pacientes={pacientes}
           setPaciente={setPaciente}
           setPacientes={setPacientes}
