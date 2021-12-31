@@ -70,7 +70,7 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
                     </button> */}
                 </div>
             </div>
-            
+            { modoBuscar && pacientesFiltrados.length === 0 && <p className='text-center text-red-500 pb-8'>No se encontraron coincidencias</p>}
 
         
             <div className='md:h-screen md:overflow-y-scroll'>
@@ -93,6 +93,7 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
                     />
                 )
                 }
+                
             </div>
         </div>
         ) : (
