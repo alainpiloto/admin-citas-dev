@@ -5,13 +5,10 @@ import './index.css'
 import Header from './components/Header'
 import Formulario from './components/Formulario'
 import ListadoPacientes from './components/ListadoPacientes'
+import dog from './assets/dog.png'
 
 function App() {
-  
-  
-  
 
-  
   const [pacientes, setPacientes] = useState([])
 
   const [paciente, setPaciente] = useState({})
@@ -32,7 +29,9 @@ function App() {
     
   }, [pacientes])
   return (
-    <div className="container mx-auto mt-20">
+    
+    <div className="container mx-auto mt-20" >
+      <img className="fixed w-1/4 -z-50 right-0 bottom-0" src={dog} alt="dog image" />
       <Header />
       
       <div className='mt-12 md:flex'>
