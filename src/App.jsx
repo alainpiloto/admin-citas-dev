@@ -6,12 +6,17 @@ import Header from './components/Header'
 import Formulario from './components/Formulario'
 import ListadoPacientes from './components/ListadoPacientes'
 import dog from './assets/dog.png'
+import DeleteModal from './components/DeleteModal'
 
 function App() {
 
   const [pacientes, setPacientes] = useState([])
 
   const [paciente, setPaciente] = useState({})
+
+  const [deletingMode, setDeletingMode] = useState(false);
+
+  const [pacienteAEliminar, setPacienteAEliminar] = useState('')
 
   useEffect(() => {
     
@@ -32,6 +37,12 @@ function App() {
     
     <div className="container mx-auto mt-20" >
       <img className="fixed w-1/4 -z-50 right-0 bottom-0" src={dog} alt="dog image" />
+      {deletingMode && <DeleteModal
+        pacientes={pacientes} 
+        setDeletingMode={setDeletingMode}
+        pacienteAEliminar={pacienteAEliminar}
+        setPacientes={setPacientes}
+        />}
       <Header />
       
       <div className='mt-12 md:flex'>
@@ -47,7 +58,8 @@ function App() {
           pacientes={pacientes}
           setPaciente={setPaciente}
           setPacientes={setPacientes}
-          
+          setDeletingMode={setDeletingMode}
+          setPacienteAEliminar={setPacienteAEliminar}
         />
       </div>
     </div>

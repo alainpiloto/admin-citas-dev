@@ -3,7 +3,7 @@ import React, { useEffect,useState } from 'react'
 import Paciente from './Paciente'
 import filter from '../assets/filter.png'
 
-const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
+const ListadoPacientes = ({pacientes, setPaciente, setPacientes,setDeletingMode,setPacienteAEliminar}) => {
    
     const [pacienteBuscado, setPacienteBuscado] = useState('');
     const [pacientesFiltrados, setPacientesFiltrados] = useState([...pacientes]);
@@ -81,6 +81,8 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
                         setPaciente={setPaciente}
                         pacientes={pacientes}
                         setPacientes={setPacientes}
+                        setDeletingMode={setDeletingMode}
+                        setPacienteAEliminar={setPacienteAEliminar}
                     /> )
                 
                 : pacientesFiltrados.map( paciente => 
@@ -90,6 +92,8 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
                         setPaciente={setPaciente}
                         pacientes={pacientes}
                         setPacientes={setPacientes}
+                        setDeletingMode={setDeletingMode}
+                        setPacienteAEliminar={setPacienteAEliminar}
                     />
                 )
                 }
@@ -97,7 +101,7 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
             </div>
         </div>
         ) : (
-            <>
+            <div className="pb-5">
         
             <h2 className='font-black text-3xl text-center'>No hay Pacientes</h2>
             <p className='text-xl mt-5 mb-10 text-center'>
@@ -107,7 +111,7 @@ const ListadoPacientes = ({pacientes, setPaciente, setPacientes}) => {
             
             
         
-        </>
+        </div>
         )}
 
        </div>
